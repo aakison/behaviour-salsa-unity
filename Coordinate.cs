@@ -267,7 +267,7 @@ public struct Coordinate {
     /// Converts the coordinate to a string of the format C(x, y, z).
     /// </summary>
     public override string ToString() {
-        return String.Format("C({0}, {1}, {2})", x, y, z);
+        return $"C({x}, {y}, {z})";
     }
 }
 
