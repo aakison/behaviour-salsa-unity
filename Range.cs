@@ -9,12 +9,24 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
+/// <summary>
+/// Represents a single range for a float in a range [minimum, maximum).
+/// </summary>
 [Serializable]
 public class Range {
 
+    [Tooltip("The inclusive lower bound of the range.")]
     public float minimum;
 
+    [Tooltip("The exclusive upper bound of the range.")]
     public float maximum;
+
+    /// <summary>
+    /// Indicates whether the indicated value is in the range.
+    /// </summary>
+    public bool Contains(float x) {
+        return minimum <= x && x < maximum;
+    }
 
 }
 
