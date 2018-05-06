@@ -28,6 +28,15 @@ public class Range {
         return minimum <= x && x < maximum;
     }
 
+    /// <summary>
+    /// The distance covered by this range, i.e. max - min.
+    /// </summary>
+    public float Span {
+        get {
+            return maximum - minimum;
+        }
+    }
+
 }
 
 #if UNITY_EDITOR
