@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using System.Diagnostics.CodeAnalysis;
 
 #if UNITY_EDITOR
 // For property drawer when editing.
@@ -266,6 +267,7 @@ public struct Coordinate {
     /// <summary>
     /// Converts the coordinate to a string of the format C(x, y, z).
     /// </summary>
+    [SuppressMessage("Heap Analyzer", "HAA0601")]
     public override string ToString() {
         return $"C({x}, {y}, {z})";
     }
