@@ -30,3 +30,6 @@ Adds the ability for a quaternion to be normalized so that massive rotations don
 
 The `UnityEngine.Random` class has some handy functions like random on a unit sphere that don't exist on `System.Random`, but is static instead of an instance.  This adds some of those handy methods as extension methods to `System.Random`.
 
+## Feature: Linear Perlin Noise
+
+The `LinearPerlin` object has been added which is a wrapper around `Mathf.PerlinNoise` that allows for customizing the range and the frequency of the noise generates.  It includes a editor which allows visual modification of these values in the inspector.
