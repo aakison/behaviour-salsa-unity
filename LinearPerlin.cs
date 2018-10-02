@@ -95,7 +95,6 @@ public class LinearPerlinDrawer : PropertyDrawer {
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        var val = base.GetPropertyHeight(property, label);
         return 64;
     }
 
