@@ -10,7 +10,7 @@ using UnityEditor;
 #endif
 
 /// <summary>
-/// A editable version of perlin noise for creating one dimensional noise.
+/// A visually editable version of perlin noise for creating one dimensional noise.
 /// </summary>
 [Serializable]
 public class LinearPerlin {
@@ -104,24 +104,39 @@ public class LinearPerlinDrawer : PropertyDrawer {
         t.hideFlags = HideFlags.HideAndDontSave;
         for(int x = 0; x < 64; ++x) {
             var range = Mathf.RoundToInt(Mathf.Clamp(shadow.Evaluate(x), 0, 64));
-            t.SetPixels(x, 32 - range / 2, 1, range, Whites);
+            t.SetPixels(x, 0, 1, 64, Background);
+            t.SetPixels(x, 32 - range / 2, 1, range, Foreground);
         }
         t.Apply();
         return t;
     }
 
-    private Color[] Whites {
+    private Color[] Foreground {
         get {
-            if(colors == null) {
-                colors = new Color[64];
+            if(whites == null) {
+                whites = new Color[64];
                 for(int i = 0; i < 64; ++i) {
-                    colors[i] = Color.white;
+                    whites[i] = Color.white;
                 }
             }
-            return colors;
+            return whites;
         }
     }
-    private Color[] colors;
+    private Color[] whites;
+
+
+    private Color[] Background {
+        get {
+            if(background == null) {
+                background = new Color[64];
+                for(int i = 0; i < 64; ++i) {
+                    background[i] = Color.black;
+                }
+            }
+            return background;
+        }
+    }
+    private Color[] background;
 
 }
 
